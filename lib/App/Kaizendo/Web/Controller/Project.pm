@@ -10,7 +10,7 @@ with qw/
   App::Kaizendo::Web::ControllerRole::Comment
   /;
 
-
+# Is chained to the Root controller base method
 sub base : Chained('/base') PathPart('') CaptureArgs(0) {
 }
 
@@ -27,7 +27,7 @@ sub section : Chained('base') PathPart('') CaptureArgs(1) {
     $c->stash( project => $project->latest_snapshot );
 }
 
-sub view : Chained('section') PathPart('') Args(0) {
+sub show : Chained('section') PathPart('') Args(0) {
 }
 
 __PACKAGE__->config(
@@ -56,7 +56,7 @@ FIXME
 
 FIXME
 
-=head2 view
+=head2 show
 
 FIXME
 
